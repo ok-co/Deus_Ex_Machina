@@ -1,0 +1,32 @@
+{
+  "name" : "deusexmachina",
+  "version-string" : "1.0.0",
+  "builtin-baseline" : "099fb9250d916511782bf5215f01f2e7141beb3a",
+  "dependencies" : [ {
+    "name" : "egl-registry",
+    "version>=" : "2024-01-25"
+  }, {
+    "name" : "glad",
+    "version>=" : "0.1.36"
+  }, {
+    "name" : "glfw3",
+    "version>=" : "3.4",
+    "features": ["wayland"]
+  }, {
+    "name" : "imgui",
+    "version>=" : "1.90.7",
+    "features" : [ "glfw-binding", "opengl3-binding" ]
+  }, {
+    "name" : "opengl-registry",
+    "version>=" : "2024-02-10#1"
+  }, {
+    "name" : "vcpkg-cmake-config",
+    "version>=" : "2022-02-06#1"
+  }, {
+    "name" : "vcpkg-cmake",
+    "version>=" : "2024-04-18"
+  }, {
+    "name" : "opengl",
+    "version>=" : "2022-12-04#3"
+  } ]
+}
