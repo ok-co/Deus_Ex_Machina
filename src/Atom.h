@@ -2,7 +2,10 @@
 #define ATOM_H
 
 class Atom {
+public:
 
+
+private:
 };
 
 #endif //ATOM_H
