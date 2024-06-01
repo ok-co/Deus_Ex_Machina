@@ -11,7 +11,7 @@
   }, {
     "name" : "glfw3",
     "version>=" : "3.4",
-    "features": ["wayland"]
+    "features" : [ "wayland" ]
   }, {
     "name" : "imgui",
     "version>=" : "1.90.7",

@@ -8,7 +8,9 @@ add_executable(deusexmachina src/main.cpp
         src/Cell.cpp
         src/Cell.h
         src/Atom.cpp
-        src/Atom.h)
+        src/Atom.h
+        src/Fundamentals.h
+)
 
 find_package(glfw3 CONFIG REQUIRED)
 target_link_libraries(deusexmachina PRIVATE glfw)
