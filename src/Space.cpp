@@ -1,51 +1,58 @@
+#include <iostream>
+
 #include "Space.h"
 
-#include <iostream>
+#include "Console.h"
+
+using std::vector;
 
 Space::Space(int dimension, int divisions)
 {
     this->dimension = dimension;
     this->divisions = divisions;
 
-    grid = std::vector<std::vector<Cell>>(divisions, std::vector<Cell> (divisions)); // n x n matrix of Cells, where n = divisions
+    grid = vector<vector<Cell>>(divisions, vector<Cell> (divisions)); // n x n matrix of Cells, where n = divisions
 
-    // creating neighbours pointers vector
-    std::pair<int, int> neigbour_vectors[8] = {{-1,-1}, {-1,0}, {-1,1}, {0,-1}, {0,1}, {1,-1}, {1, 0}, {1,1}};
-    for(size_t i = 0; i < divisions; ++i)
+    // creating neighbors pointers vector
+    std::pair<int, int> neighbor_vectors[8] = {{-1,-1}, {-1,0}, {-1,1}, {0,-1}, {0,1}, {1,-1}, {1, 0}, {1,1}};
+    for(int i = 0; i < divisions; ++i)
     {
-        for(size_t j = 0; j < divisions; ++j)
+        for(int j = 0; j < divisions; ++j)
         {
-            for (std::pair<int, int> vec : neigbour_vectors)
+            for (std::pair<int, int> vec : neighbor_vectors)
             {
-                //calculating position of neighbour cell index
-                int neighbour_i = i + vec.first;
-                int neighbour_j = j + vec.second;
+                //calculating position of neighbor cell index
+                int neighbor_i = i + vec.first;
+                int neighbor_j = j + vec.second;
 
-                if (neighbour_i < 0 || neighbour_i > divisions || neighbour_j < 0 || neighbour_j > divisions)
+                if (neighbor_i < 0 || neighbor_i > divisions || neighbor_j < 0 || neighbor_j > divisions)
                 {
                     continue;
                 }
 
-                grid[i][j].add_neighbour(&grid[neighbour_i][neighbour_j]);
+                grid[i][j].addNeighbor(&grid[neighbor_i][neighbor_j]);
+
+                Console* console = Console::getInstance();
+                console->addEntry({"Space created", Entry::standard});
             }
         }
     }
 }
 
-void Space::show_cells_populations()
+void Space::showCellsPopulation() const
 {
     for(size_t i = 0; i < divisions; ++i)
     {
         for(size_t j = 0; j < divisions; ++j)
         {
-            std::cout << grid[i][j].atoms_count() << " ";
+            std::cout << grid[i][j].atomsCount() << " ";
         }
         std::cout << "\n";
     }
     std::cout << "\n";
 }
 
-void Space::create(Atom_character character)
+void Space::create(const AtomCharacter& character)
 {
     int dest_i = character.position.ry / (dimension / divisions);
     int dest_j = character.position.rx / (dimension / divisions);

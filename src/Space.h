@@ -4,12 +4,11 @@
 
 #include "Cell.h"
 
-
 class Space {
 public:
     Space(int dimension, int divisions);
-    void show_cells_populations();
-    void create(Atom_character character);
+    void showCellsPopulation() const;
+    void create(const AtomCharacter& character);
     std::vector<std::vector<Cell>> grid;    // vector of cells representing flattened grid
 
 private:

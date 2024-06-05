@@ -1,22 +1,27 @@
-#include "Atom.h"
-
 #include <stdexcept>
 
-Atom::Atom(Atom_character character)
+#include "Atom.h"
+#include "Console.h"
+
+using std::vector;
+
+Atom::Atom(AtomCharacter character)
 {
     this->character = character;
+
+    Console* console = Console::getInstance();
+    console->addEntry({"Atom created", Entry::standard});
 }
 
 
-void Atom::force_step(std::vector<Atom*> agents)
-{
 
-}
-
-void Atom::relations_update(std::vector<int>& relations)
+void Atom::relationsUpdate(vector<int>& relations)
 {
     if (relations.size() != character.vertices)
     {
+        Console* console = Console::getInstance();
+        console->addEntry({"Wrong array size!", Entry::error});
+
         throw std::invalid_argument("Wrong array size!");
     }
 

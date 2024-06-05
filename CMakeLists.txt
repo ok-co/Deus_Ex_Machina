@@ -9,7 +9,10 @@ add_executable(deusexmachina src/main.cpp
         src/Cell.h
         src/Atom.cpp
         src/Atom.h
+        src/Fundamentals.cpp
         src/Fundamentals.h
+        src/Console.cpp
+        src/Console.h
 )
 
 find_package(glfw3 CONFIG REQUIRED)

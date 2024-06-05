@@ -1,6 +1,8 @@
 #ifndef FUNDAMENTALS_H
 #define FUNDAMENTALS_H
 
+using std::vector;
+
 struct Position
 {
     double rx;
@@ -21,11 +23,11 @@ struct Angle
     double ang;
     double vang; // angular velocity
 };
-struct Atom_character
+struct AtomCharacter
 {
     // physical properties
     int vertices;
-    std::vector<int> relations;
+    vector<int> relations;
     int mass;
 
     // state
@@ -34,5 +36,8 @@ struct Atom_character
     Force force{};
     Angle angle{};
 };
+
+double getDistance(Position pos1, Position pos2);
+
 
 #endif //FUNDAMENTALS_H
